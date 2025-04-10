@@ -1,60 +1,53 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Marvel Rivals Hellfire Gala Countdown Timer</title>
   <style>
     body {
-      font-family: sans-serif;
-      text-align: center;
-      padding: 50px;
-      background: #111;
-      color: #fff;
+      margin: 0;
+      padding: 0;
+      background-image: url('https://marvelrivals.gg/wp-content/uploads/sites/47/2025/04/Marvel-Rivals-Season-2-Hellfire-Gala.webp');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      color: white;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-shadow: 2px 2px 8px #000;
     }
+
     h1 {
-      font-size: 2.5rem;
-      margin-bottom: 10px;
+      font-size: 5vw;
+      margin-bottom: 20px;
     }
-    .section {
-      margin-bottom: 60px;
-    }
-    .label {
-      font-size: 1.8rem;
-      margin-bottom: 10px;
-    }
+
     .timer {
-      font-size: 3.2rem;
+      font-size: 10vw;
       font-weight: bold;
     }
   </style>
 </head>
 <body>
-  <h1>Countdown to 11 April 2025 Hellfire Gala Patch Update</h1>
-
-  <div class="section">
-    <div class="label">🇹🇷 Karşıyaka / İzmir (GMT+3)</div>
-    <div class="timer" id="timer-tr"></div>
-  </div>
-
-  <div class="section">
-    <div class="label">🇩🇪 Düsseldorf (GMT+2)</div>
-    <div class="timer" id="timer-de"></div>
-  </div>
+  <h1>🇩🇪 Düsseldorf Geri Sayım</h1>
+  <div class="timer" id="timer-tr"></div>
 
   <script>
-    // TR hedefi: 11 Nisan 2025, 11:00 GMT+3 → UTC 08:00
+    // Türkiye saati: 11 Nisan 2025, 11:00 GMT+3 → UTC 08:00
     const targetDateTR = new Date(Date.UTC(2025, 3, 11, 8, 0, 0));
-    // DE hedefi: 11 Nisan 2025, 11:00 GMT+2 → UTC 09:00
-    const targetDateDE = new Date(Date.UTC(2025, 3, 11, 9, 0, 0));
 
-    function updateCountdown(targetDate, elementId) {
+    function updateCountdown() {
       const now = new Date();
-      const diff = targetDate - now;
+      const diff = targetDateTR - now;
 
-      const el = document.getElementById(elementId);
+      const el = document.getElementById("timer-tr");
       if (diff <= 0) {
-        el.textContent = "Countdown finished!";
+        el.textContent = "Geri Sayım Bitti!";
         return;
       }
 
@@ -64,17 +57,11 @@
       const minutes = Math.floor((totalSeconds % 3600) / 60);
       const seconds = totalSeconds % 60;
 
-      el.textContent = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+      el.textContent = `${days}g ${hours}s ${minutes}d ${seconds}s`;
     }
 
-    setInterval(() => {
-      updateCountdown(targetDateTR, "timer-tr");
-      updateCountdown(targetDateDE, "timer-de");
-    }, 1000);
-
-    // Sayfa ilk yüklendiğinde de göster
-    updateCountdown(targetDateTR, "timer-tr");
-    updateCountdown(targetDateDE, "timer-de");
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
   </script>
 </body>
 </html>
