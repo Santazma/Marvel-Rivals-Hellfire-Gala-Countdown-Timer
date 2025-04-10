@@ -17,13 +17,20 @@
       background-position: center;
       background-attachment: fixed;
       height: 100vh;
-      color: black;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       align-items: center;
-      text-shadow: none;
+      color: white;
+    }
+
+    h1, .timer {
+      text-shadow: 
+        -1px -1px 2px black,
+         1px -1px 2px black,
+        -1px  1px 2px black,
+         1px  1px 2px black;
     }
 
     h1 {
@@ -52,7 +59,7 @@
 
       const el = document.getElementById("timer-tr");
       if (diff <= 0) {
-        el.textContent = "Geri Sayım Bitti!";
+        el.textContent = "Patch Şu Anda Aktif!";
         return;
       }
 
