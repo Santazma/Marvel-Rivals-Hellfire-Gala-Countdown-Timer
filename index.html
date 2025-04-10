@@ -5,36 +5,41 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Marvel Rivals Hellfire Gala Countdown Timer</title>
   <style>
-    body {
+    * {
       margin: 0;
       padding: 0;
-      background-image: url('https://marvelrivals.gg/wp-content/uploads/sites/47/2025/04/Marvel-Rivals-Season-2-Hellfire-Gala.webp');
+      box-sizing: border-box;
+    }
+
+    body {
+      background-image: url('https://marvelrivals.gg/wp-content/uploads/sites/47/2025/04/Marvel-Rivals-Season-2-Hellfire-Gala.webp'); 
       background-size: cover;
       background-position: center;
       background-attachment: fixed;
-      color: white;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       height: 100vh;
+      color: black;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       display: flex;
       flex-direction: column;
-      justify-content: center;
+      justify-content: space-between;
       align-items: center;
-      text-shadow: 2px 2px 8px #000;
+      text-shadow: none;
     }
 
     h1 {
       font-size: 5vw;
-      margin-bottom: 20px;
+      margin-top: 30px;
     }
 
     .timer {
       font-size: 10vw;
       font-weight: bold;
+      margin-bottom: 30px;
     }
   </style>
 </head>
 <body>
-  <h1>🇩🇪 Düsseldorf Geri Sayım</h1>
+  <h1>🇩🇪 Düsseldorf İçin Geri Sayım</h1>
   <div class="timer" id="timer-tr"></div>
 
   <script>
